@@ -20,6 +20,33 @@ model User {
   surname   String?
   lastname  String?
   password  String?
+  lists     List[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@map("users")
+}
+
+model List {
+  id        String   @id @default(cuid())
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  todos     Todo[]
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+
+  @@map("lists")
+}
+
+model Todo {
+  id        String   @id @default(cuid())
+  name      String
+  completed Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  listId    String
+  list      List     @relation(fields: [listId], references: [id])
+
+  @@map("todos")
 }
