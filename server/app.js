@@ -4,8 +4,8 @@ const port = 3000;
 
 app.use(express.json());
 
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users.js');
+const indexRouter = require('./routes/indexRoute.js');
+const usersRouter = require('./routes/userRoute.js');
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

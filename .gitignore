@@ -7,4 +7,4 @@ npm-debug.log
 server/node_modules
 server/generated/prisma
 server/.env
-server/prisma/dev.db
+server/prisma/tada.db

@@ -144,7 +144,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/Users/damian/Desktop/Tada/server/prisma/generated/prisma",
+      "value": "C:\\Users\\damia\\Desktop\\Tada\\server\\prisma\\generated\\prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -153,16 +153,16 @@ const config = {
     "binaryTargets": [
       {
         "fromEnvVar": null,
-        "value": "darwin-arm64",
+        "value": "windows",
         "native": true
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "/Users/damian/Desktop/Tada/server/prisma/schema.prisma",
+    "sourceFilePath": "C:\\Users\\damia\\Desktop\\Tada\\server\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": "../../../.env",
+    "rootEnvPath": null,
     "schemaEnvPath": "../../../.env"
   },
   "relativePath": "../..",
