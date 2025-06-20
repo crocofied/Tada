@@ -1,6 +1,7 @@
+https://dev.to/osalumense/validating-request-data-in-expressjs-using-zod-a-comprehensive-guide-3a0j
 const express = require('express');
 const router = express.Router();
-const { PrismaClient } = require('../generated/prisma/client');
+const { PrismaClient } = require('../prisma/generated/prisma/client');
 const bcrypt = require('bcryptjs');
 
 const prisma = new PrismaClient();

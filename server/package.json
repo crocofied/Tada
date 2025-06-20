@@ -16,8 +16,10 @@
     "@prisma/client": "^6.10.1",
     "bcryptjs": "^3.0.2",
     "express": "^5.1.0",
+    "http-status-codes": "^2.3.0",
     "prisma": "^6.10.1",
-    "save-dev": "^0.0.1-security"
+    "save-dev": "^0.0.1-security",
+    "zod": "^3.25.67"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"
