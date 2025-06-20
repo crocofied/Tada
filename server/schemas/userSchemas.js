@@ -8,6 +8,12 @@ const userRegistrationSchema = z.object({
     admin: z.boolean().optional(),
 });
 
+const userLoginSchema = z.object({
+    email: z.string().email(),
+    password: z.string().min(6, 'Password must be at least 6 characters long'),
+});
+
 module.exports = {
     userRegistrationSchema,
+    userLoginSchema,
 };
