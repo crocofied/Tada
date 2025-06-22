@@ -75,9 +75,65 @@ const loginUser = async (req, res) => {
         console.error('Error logging in user:', error);
         res.status(500).json({ error: 'Internal server error' });
     }
-}
+} 
+
+const validateToken =  async (req, res, next) => {
+    const token = req.headers['authorization']?.split(' ')[1];
+    if (!token) {
+        return res.status(401).json({ error: 'No token provided' });
+    }
+
+    try {
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        req.user = decoded;
+        next();
+    } catch (error) {
+        console.error('Token validation error:', error);
+        res.status(401).json({ error: 'Invalid token' });
+    }
+};
+
+const updateUser = async (req, res) => {
+    const { id } = req.user;
+    const { email, firstname, lastname, password } = req.body;
+
+    try {
+        const user = await prisma.user.findUnique({ where: { id } });
+        if (!user) {
+            return res.status(404).json({ error: 'User not found' });
+        }
+
+        const updatedData = {
+            email: email || user.email,
+            firstname: firstname || user.firstname,
+            lastname: lastname || user.lastname,
+        };
+
+        if (password) {
+            updatedData.password = bcrypt.hashSync(password, 10);
+        }
+
+        const updatedUser = await prisma.user.update({
+            where: { id },
+            data: updatedData,
+        });
+
+        res.status(200).json({
+            id: updatedUser.id,
+            email: updatedUser.email,
+            firstname: updatedUser.firstname,
+            lastname: updatedUser.lastname,
+            admin: updatedUser.admin,
+        });
+    } catch (error) {
+        console.error('Error updating user:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+};
 
 module.exports = {
     registerUser,
     loginUser,
+    validateToken,
+    updateUser
 };

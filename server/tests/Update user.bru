@@ -1,0 +1,25 @@
+meta {
+  name: Update user
+  type: http
+  seq: 4
+}
+
+post {
+  url: http://localhost:3000/users/update
+  body: json
+  auth: inherit
+}
+
+headers {
+  Authorization: Bearer 
+}
+
+body:json {
+  {
+    "email": "admin@example.com",
+    "firstname": "Max",
+    "lastname": "Mustermann",
+    "password": "password1234",
+    "admin": true
+  }
+}
