@@ -1,11 +1,11 @@
 meta {
-  name: Create ToDo
+  name: Edit ToDo
   type: http
-  seq: 1
+  seq: 4
 }
 
-post {
-  url: http://localhost:3000/todos
+put {
+  url: http://localhost:3000/todos/cmc819t070003ll3s4rn8nsmr
   body: json
   auth: inherit
 }
@@ -16,7 +16,6 @@ headers {
 
 body:json {
   {
-    "listId": "cmc818vhh0001ll3sl4afw4ba",
-    "name": "test2"
+    "name": "test"
   }
 }

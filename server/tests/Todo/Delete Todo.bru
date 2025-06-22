@@ -1,22 +1,15 @@
 meta {
-  name: Create ToDo
+  name: Delete Todo
   type: http
-  seq: 1
+  seq: 5
 }
 
-post {
-  url: http://localhost:3000/todos
-  body: json
+delete {
+  url: http://localhost:3000/todos/cmc819t070003ll3s4rn8nsmr
+  body: none
   auth: inherit
 }
 
 headers {
   Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtYzU3M2x2YTAwMDBsbDd3N3Y1d3RtODIiLCJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwiaWF0IjoxNzUwNjA2NTUxLCJleHAiOjE3NTEyMTEzNTF9.He97Qfhm1Up0xsENrVQmAEJdfKe9BCCYZoc2aAi-rOA
-}
-
-body:json {
-  {
-    "listId": "cmc818vhh0001ll3sl4afw4ba",
-    "name": "test2"
-  }
 }
