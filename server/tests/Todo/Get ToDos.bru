@@ -1,11 +1,11 @@
 meta {
-  name: Update user
+  name: Get ToDos
   type: http
-  seq: 4
+  seq: 2
 }
 
-post {
-  url: http://localhost:3000/users/update
+get {
+  url: http://localhost:3000/todos
   body: json
   auth: inherit
 }
@@ -16,10 +16,6 @@ headers {
 
 body:json {
   {
-    "email": "admin@example.com",
-    "firstname": "Max",
-    "lastname": "Mustermann",
-    "password": "password1234",
-    "admin": true
+    "listId": "cmc7uigy80001llacyhwf9d1d"
   }
 }

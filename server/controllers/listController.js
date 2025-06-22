@@ -10,7 +10,7 @@ const createList = async (req, res) => {
         const list = await prisma.list.create({
             data: {
                 name,
-                description,
+                description: description || null, 
                 userId,
             },
         });
