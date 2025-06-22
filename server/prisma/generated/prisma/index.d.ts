@@ -2232,6 +2232,7 @@ export namespace Prisma {
   export type ListMinAggregateOutputType = {
     id: string | null
     name: string | null
+    description: string | null
     createdAt: Date | null
     updatedAt: Date | null
     userId: string | null
@@ -2240,6 +2241,7 @@ export namespace Prisma {
   export type ListMaxAggregateOutputType = {
     id: string | null
     name: string | null
+    description: string | null
     createdAt: Date | null
     updatedAt: Date | null
     userId: string | null
@@ -2248,6 +2250,7 @@ export namespace Prisma {
   export type ListCountAggregateOutputType = {
     id: number
     name: number
+    description: number
     createdAt: number
     updatedAt: number
     userId: number
@@ -2258,6 +2261,7 @@ export namespace Prisma {
   export type ListMinAggregateInputType = {
     id?: true
     name?: true
+    description?: true
     createdAt?: true
     updatedAt?: true
     userId?: true
@@ -2266,6 +2270,7 @@ export namespace Prisma {
   export type ListMaxAggregateInputType = {
     id?: true
     name?: true
+    description?: true
     createdAt?: true
     updatedAt?: true
     userId?: true
@@ -2274,6 +2279,7 @@ export namespace Prisma {
   export type ListCountAggregateInputType = {
     id?: true
     name?: true
+    description?: true
     createdAt?: true
     updatedAt?: true
     userId?: true
@@ -2355,6 +2361,7 @@ export namespace Prisma {
   export type ListGroupByOutputType = {
     id: string
     name: string
+    description: string | null
     createdAt: Date
     updatedAt: Date
     userId: string
@@ -2380,6 +2387,7 @@ export namespace Prisma {
   export type ListSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
+    description?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     userId?: boolean
@@ -2391,6 +2399,7 @@ export namespace Prisma {
   export type ListSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
+    description?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     userId?: boolean
@@ -2400,6 +2409,7 @@ export namespace Prisma {
   export type ListSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
+    description?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     userId?: boolean
@@ -2409,12 +2419,13 @@ export namespace Prisma {
   export type ListSelectScalar = {
     id?: boolean
     name?: boolean
+    description?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     userId?: boolean
   }
 
-  export type ListOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "createdAt" | "updatedAt" | "userId", ExtArgs["result"]["list"]>
+  export type ListOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "createdAt" | "updatedAt" | "userId", ExtArgs["result"]["list"]>
   export type ListInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     todos?: boolean | List$todosArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -2436,6 +2447,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       name: string
+      description: string | null
       createdAt: Date
       updatedAt: Date
       userId: string
@@ -2866,6 +2878,7 @@ export namespace Prisma {
   interface ListFieldRefs {
     readonly id: FieldRef<"List", 'String'>
     readonly name: FieldRef<"List", 'String'>
+    readonly description: FieldRef<"List", 'String'>
     readonly createdAt: FieldRef<"List", 'DateTime'>
     readonly updatedAt: FieldRef<"List", 'DateTime'>
     readonly userId: FieldRef<"List", 'String'>
@@ -4402,6 +4415,7 @@ export namespace Prisma {
   export const ListScalarFieldEnum: {
     id: 'id',
     name: 'name',
+    description: 'description',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
     userId: 'userId'
@@ -4550,6 +4564,7 @@ export namespace Prisma {
     NOT?: ListWhereInput | ListWhereInput[]
     id?: StringFilter<"List"> | string
     name?: StringFilter<"List"> | string
+    description?: StringNullableFilter<"List"> | string | null
     createdAt?: DateTimeFilter<"List"> | Date | string
     updatedAt?: DateTimeFilter<"List"> | Date | string
     userId?: StringFilter<"List"> | string
@@ -4560,6 +4575,7 @@ export namespace Prisma {
   export type ListOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
+    description?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     userId?: SortOrder
@@ -4573,6 +4589,7 @@ export namespace Prisma {
     OR?: ListWhereInput[]
     NOT?: ListWhereInput | ListWhereInput[]
     name?: StringFilter<"List"> | string
+    description?: StringNullableFilter<"List"> | string | null
     createdAt?: DateTimeFilter<"List"> | Date | string
     updatedAt?: DateTimeFilter<"List"> | Date | string
     userId?: StringFilter<"List"> | string
@@ -4583,6 +4600,7 @@ export namespace Prisma {
   export type ListOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
+    description?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     userId?: SortOrder
@@ -4597,6 +4615,7 @@ export namespace Prisma {
     NOT?: ListScalarWhereWithAggregatesInput | ListScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"List"> | string
     name?: StringWithAggregatesFilter<"List"> | string
+    description?: StringNullableWithAggregatesFilter<"List"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"List"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"List"> | Date | string
     userId?: StringWithAggregatesFilter<"List"> | string
@@ -4746,6 +4765,7 @@ export namespace Prisma {
   export type ListCreateInput = {
     id?: string
     name: string
+    description?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     todos?: TodoCreateNestedManyWithoutListInput
@@ -4755,6 +4775,7 @@ export namespace Prisma {
   export type ListUncheckedCreateInput = {
     id?: string
     name: string
+    description?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     userId: string
@@ -4764,6 +4785,7 @@ export namespace Prisma {
   export type ListUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     todos?: TodoUpdateManyWithoutListNestedInput
@@ -4773,6 +4795,7 @@ export namespace Prisma {
   export type ListUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     userId?: StringFieldUpdateOperationsInput | string
@@ -4782,6 +4805,7 @@ export namespace Prisma {
   export type ListCreateManyInput = {
     id?: string
     name: string
+    description?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     userId: string
@@ -4790,6 +4814,7 @@ export namespace Prisma {
   export type ListUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -4797,6 +4822,7 @@ export namespace Prisma {
   export type ListUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     userId?: StringFieldUpdateOperationsInput | string
@@ -5030,6 +5056,7 @@ export namespace Prisma {
   export type ListCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    description?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     userId?: SortOrder
@@ -5038,6 +5065,7 @@ export namespace Prisma {
   export type ListMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    description?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     userId?: SortOrder
@@ -5046,6 +5074,7 @@ export namespace Prisma {
   export type ListMinOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    description?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     userId?: SortOrder
@@ -5336,6 +5365,7 @@ export namespace Prisma {
   export type ListCreateWithoutUserInput = {
     id?: string
     name: string
+    description?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     todos?: TodoCreateNestedManyWithoutListInput
@@ -5344,6 +5374,7 @@ export namespace Prisma {
   export type ListUncheckedCreateWithoutUserInput = {
     id?: string
     name: string
+    description?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     todos?: TodoUncheckedCreateNestedManyWithoutListInput
@@ -5380,6 +5411,7 @@ export namespace Prisma {
     NOT?: ListScalarWhereInput | ListScalarWhereInput[]
     id?: StringFilter<"List"> | string
     name?: StringFilter<"List"> | string
+    description?: StringNullableFilter<"List"> | string | null
     createdAt?: DateTimeFilter<"List"> | Date | string
     updatedAt?: DateTimeFilter<"List"> | Date | string
     userId?: StringFilter<"List"> | string
@@ -5501,6 +5533,7 @@ export namespace Prisma {
   export type ListCreateWithoutTodosInput = {
     id?: string
     name: string
+    description?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutListsInput
@@ -5509,6 +5542,7 @@ export namespace Prisma {
   export type ListUncheckedCreateWithoutTodosInput = {
     id?: string
     name: string
+    description?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     userId: string
@@ -5533,6 +5567,7 @@ export namespace Prisma {
   export type ListUpdateWithoutTodosInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutListsNestedInput
@@ -5541,6 +5576,7 @@ export namespace Prisma {
   export type ListUncheckedUpdateWithoutTodosInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     userId?: StringFieldUpdateOperationsInput | string
@@ -5549,6 +5585,7 @@ export namespace Prisma {
   export type ListCreateManyUserInput = {
     id?: string
     name: string
+    description?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -5556,6 +5593,7 @@ export namespace Prisma {
   export type ListUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     todos?: TodoUpdateManyWithoutListNestedInput
@@ -5564,6 +5602,7 @@ export namespace Prisma {
   export type ListUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     todos?: TodoUncheckedUpdateManyWithoutListNestedInput
@@ -5572,6 +5611,7 @@ export namespace Prisma {
   export type ListUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
