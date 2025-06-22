@@ -22,6 +22,22 @@ const createList = async (req, res) => {
     }
 }
 
+const getAllLists = async (req, res) => {
+    const userId = req.user.id;
+
+    try {
+        const lists = await prisma.list.findMany({
+            where: { userId },
+        });
+
+        res.status(200).json(lists);
+    } catch (error) {
+        console.error('Error fetching lists:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+}
+
 module.exports = {
     createList,
+    getAllLists,
 }

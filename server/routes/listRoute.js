@@ -6,8 +6,9 @@ const { validateToken } = require('../controllers/userController');
 
 const router = express.Router();
 
-const { createList } = require('../controllers/listController');
+const { createList, getAllLists } = require('../controllers/listController');
 
 router.post('/', validateData(createListSchema), validateToken, createList);
+router.get('/', validateToken, getAllLists);
 
 module.exports = router;
