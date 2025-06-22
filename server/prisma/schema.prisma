@@ -36,7 +36,7 @@ model List {
   updatedAt DateTime @updatedAt
   todos     Todo[]
   userId    String
-  user      User     @relation(fields: [userId], references: [id])
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@map("lists")
 }
@@ -48,7 +48,7 @@ model Todo {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   listId    String
-  list      List     @relation(fields: [listId], references: [id])
+  list      List     @relation(fields: [listId], references: [id], onDelete: Cascade)
 
   @@map("todos")
 }

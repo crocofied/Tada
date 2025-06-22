@@ -1,25 +1,15 @@
 meta {
-  name: Update user
+  name: Delete List
   type: http
-  seq: 4
+  seq: 5
 }
 
-post {
-  url: http://localhost:3000/users/update
-  body: json
+delete {
+  url: http://localhost:3000/lists/cmc7uigy80001llacyhwf9d1d
+  body: none
   auth: inherit
 }
 
 headers {
   Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtYzU3M2x2YTAwMDBsbDd3N3Y1d3RtODIiLCJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwiaWF0IjoxNzUwNjA2NTUxLCJleHAiOjE3NTEyMTEzNTF9.He97Qfhm1Up0xsENrVQmAEJdfKe9BCCYZoc2aAi-rOA
-}
-
-body:json {
-  {
-    "email": "admin@example.com",
-    "firstname": "Max",
-    "lastname": "Mustermann",
-    "password": "password1234",
-    "admin": true
-  }
 }
