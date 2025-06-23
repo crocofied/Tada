@@ -19,7 +19,23 @@ const useUser = () => {
         });
     }
 
-    return { register }
+     const login = async (email: string, password: string): Promise<string> => {
+        try {
+            const response = await axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/users/login`, { 
+                email, 
+                password 
+            });
+            console.log(response.data.token);
+            return response.data.token;  
+        } catch (error: any) {
+            if (error.response?.data?.details) {
+                throw error.response.data.details[0].message;
+            }
+            throw error.response?.data?.error || "Login failed";
+        }
+    }
+
+    return { register, login };
 
 }
 

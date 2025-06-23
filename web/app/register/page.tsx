@@ -21,7 +21,6 @@ export default function Register() {
     const { register } = useUser();
 
     const handleRegister = async () => {
-
         await register(email, firstname, lastname, password, passwordConfirm).
         then((response) => {
             setError(null);
