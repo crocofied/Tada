@@ -1,7 +1,16 @@
 const express = require('express');
-const app = express();
-const port = 3000;
+const cors = require('cors');
 
+const app = express();
+
+const corsOptions = {
+  origin: true,
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 const indexRouter = require('./routes/indexRoute.js');
@@ -14,6 +23,6 @@ app.use('/users', usersRouter);
 app.use('/lists', listsRouter);
 app.use('/todos', todosRouter);
 
-app.listen(port, () => {
-  console.log(`Tada API is running on port ${port}`);
+app.listen(3000, () => {
+  console.log(`Tada API is running`);
 });
