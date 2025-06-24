@@ -7,6 +7,7 @@ import useUser from "@/hooks/useUser"
 import ErrorToast from "@/components/Error";
 import SuccessToast from "@/components/Success";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
 
@@ -18,13 +19,22 @@ export default function Home() {
 
   const { login } = useUser()
 
+  const router = useRouter()
+
   const handleLogin = async () => {
         try {
-            const token = await login(email, password);
-            setError(null);
-            setSuccess("Login successful!");
-            //Cookies.set("token", token);
-            console.log("Stored token:", token);
+          const token = await login(email, password);
+          Cookies.set("token", token, { 
+            expires: 7,
+            path: '/',
+            sameSite: 'Lax'
+          });
+          
+          await new Promise(resolve => setTimeout(resolve, 50));
+          
+          setError(null);
+          setSuccess("Login successful!");
+          router.push("/dashboard");
         } catch (error: any) {
             setError(error.message || String(error));
             setSuccess(null);
